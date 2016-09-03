@@ -70,6 +70,14 @@ TEST_P(SortTest, QuickSort2) {
     EXPECT_EQ(expected, actual);
 }
 
+TEST_P(SortTest, QuickSort3) {
+    auto expected = GetParam();
+    auto actual = expected;
+    sort(expected.begin(), expected.end());
+    quick_sort3(actual);
+    EXPECT_EQ(expected, actual);
+}
+
 TEST_P(SortTest, HeapSort1) {
     auto expected = GetParam();
     auto actual = expected;

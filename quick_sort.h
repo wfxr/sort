@@ -4,12 +4,12 @@ void quick_sort1(vector<int> &a, int l, int u) {
     if (l >= u) return;
     auto t = a[l];
     auto i = l + 1, j = u;
-    while (i <= j) {
-        if (a[j] < t)
-            swap(a[i++], a[j]);
+    while (i <= j)
+        if (t < a[i])
+            swap(a[i], a[j--]);
         else
-            --j;
-    }
+            ++i;
+
     swap(a[l], a[j]);
     quick_sort1(a, l, j - 1);
     quick_sort1(a, j + 1, u);
@@ -34,5 +34,27 @@ void quick_sort2(vector<int> &a, int l, int u) {
     quick_sort2(a, j + 1, u);
 }
 
+// 三向切分的快速排序
+void quick_sort3(vector<int> &a, int l, int u) {
+    if (l >= u) return;
+    auto t = a[l];
+    auto lt = l, i = l + 1, gt = u;
+    while (i < gt) {
+        if (a[i] < t)
+            swap(a[i++], a[lt++]);
+        else if (t < a[i])
+            swap(a[i], a[gt--]);
+        else
+            ++i;
+    }
+
+    // [lt, gt]范围内的元素均等于t
+    // [l, lt)范围内的元素均小于t
+    // (gt, u]范围内的元素均大于t
+    quick_sort3(a, l, lt - 1);
+    quick_sort3(a, gt + 1, u);
+}
+
 void quick_sort1(vector<int> &a) { quick_sort1(a, 0, a.size() - 1); }
 void quick_sort2(vector<int> &a) { quick_sort2(a, 0, a.size() - 1); }
+void quick_sort3(vector<int> &a) { quick_sort2(a, 0, a.size() - 1); }
