@@ -70,11 +70,19 @@ TEST_P(SortTest, QuickSort2) {
     EXPECT_EQ(expected, actual);
 }
 
-TEST_P(SortTest, HeapSort) {
+TEST_P(SortTest, HeapSort1) {
     auto expected = GetParam();
     auto actual = expected;
     sort(expected.begin(), expected.end());
-    heap_sort(actual);
+    heap_sort1(actual);
+    EXPECT_EQ(expected, actual);
+}
+
+TEST_P(SortTest, HeapSort2) {
+    auto expected = GetParam();
+    auto actual = expected;
+    sort(expected.begin(), expected.end());
+    heap_sort2(actual);
     EXPECT_EQ(expected, actual);
 }
 
