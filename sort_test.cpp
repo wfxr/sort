@@ -1,8 +1,9 @@
 #include "commons.h"
-#include "insert_sort.cpp"
-#include "merge_sort.cpp"
-#include "quick_sort.cpp"
-#include "shell_sort.cpp"
+#include "heap_sort.h"
+#include "insert_sort.h"
+#include "merge_sort.h"
+#include "quick_sort.h"
+#include "shell_sort.h"
 #include <functional>
 #include <gtest/gtest.h>
 
@@ -66,6 +67,14 @@ TEST_P(SortTest, QuickSort2) {
     auto actual = expected;
     sort(expected.begin(), expected.end());
     quick_sort2(actual);
+    EXPECT_EQ(expected, actual);
+}
+
+TEST_P(SortTest, HeapSort) {
+    auto expected = GetParam();
+    auto actual = expected;
+    sort(expected.begin(), expected.end());
+    heap_sort(actual);
     EXPECT_EQ(expected, actual);
 }
 
