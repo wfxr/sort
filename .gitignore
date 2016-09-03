@@ -1,0 +1,5 @@
+# binary files
+*.out
+
+# build directories
+build
