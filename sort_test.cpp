@@ -1,4 +1,6 @@
 #include "commons.h"
+#include "bubble_sort.h"
+#include "selection_sort.h"
 #include "heap_sort.h"
 #include "insert_sort.h"
 #include "merge_sort.h"
@@ -91,6 +93,22 @@ TEST_P(SortTest, HeapSort2) {
     auto actual = expected;
     sort(expected.begin(), expected.end());
     heap_sort2(actual);
+    EXPECT_EQ(expected, actual);
+}
+
+TEST_P(SortTest, SelectionSort) {
+    auto expected = GetParam();
+    auto actual = expected;
+    sort(expected.begin(), expected.end());
+    selection_sort(actual);
+    EXPECT_EQ(expected, actual);
+}
+
+TEST_P(SortTest, BubbleSort) {
+    auto expected = GetParam();
+    auto actual = expected;
+    sort(expected.begin(), expected.end());
+    bubble_sort(actual);
     EXPECT_EQ(expected, actual);
 }
 

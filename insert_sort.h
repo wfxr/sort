@@ -1,3 +1,4 @@
+#pragma once
 #include "commons.h"
 
 void insert_sort1(vector<int> &vec) {

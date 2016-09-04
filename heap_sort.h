@@ -1,3 +1,4 @@
+#pragma once
 #include "commons.h"
 
 // 对大小为n的堆中最后一个元素执行上浮操作

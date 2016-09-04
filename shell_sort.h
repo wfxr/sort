@@ -1,3 +1,4 @@
+#pragma once
 #include "commons.h"
 
 void shell_sort(vector<int> &a) {

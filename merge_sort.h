@@ -1,3 +1,4 @@
+#pragma once
 #include "commons.h"
 
 void merge(vector<int> &a, vector<int> &aux, int l, int m, int u) {

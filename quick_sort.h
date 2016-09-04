@@ -1,3 +1,4 @@
+#pragma once
 #include "commons.h"
 
 void quick_sort1(vector<int> &a, int l, int u) {
