@@ -48,11 +48,19 @@ TEST_P(SortTest, ShellSort) {
     EXPECT_EQ(expected, actual);
 }
 
-TEST_P(SortTest, MergeSort) {
+TEST_P(SortTest, MergeSort1) {
     auto expected = GetParam();
     auto actual = expected;
     sort(expected.begin(), expected.end());
-    merge_sort(actual);
+    merge_sort1(actual);
+    EXPECT_EQ(expected, actual);
+}
+
+TEST_P(SortTest, MergeSort2) {
+    auto expected = GetParam();
+    auto actual = expected;
+    sort(expected.begin(), expected.end());
+    merge_sort2(actual);
     EXPECT_EQ(expected, actual);
 }
 
@@ -104,11 +112,19 @@ TEST_P(SortTest, SelectionSort) {
     EXPECT_EQ(expected, actual);
 }
 
-TEST_P(SortTest, BubbleSort) {
+TEST_P(SortTest, BubbleSort1) {
     auto expected = GetParam();
     auto actual = expected;
     sort(expected.begin(), expected.end());
-    bubble_sort(actual);
+    bubble_sort1(actual);
+    EXPECT_EQ(expected, actual);
+}
+
+TEST_P(SortTest, BubbleSort2) {
+    auto expected = GetParam();
+    auto actual = expected;
+    sort(expected.begin(), expected.end());
+    bubble_sort2(actual);
     EXPECT_EQ(expected, actual);
 }
 

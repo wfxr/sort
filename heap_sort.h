@@ -3,10 +3,11 @@
 
 // 对大小为n的堆中最后一个元素执行上浮操作
 void shift_up(vector<int> &a, int n) {
-    for (int i = n - 1, c; i > 0; i = c) {
-        c = (i - 1) / 2; // i 的父节点
+    for (int i = n - 1; i > 0;) {
+        auto c = (i - 1) / 2; // i 的父节点
         if (a[i] < a[c]) break;
         swap(a[c], a[i]);
+        i = c;
     }
 }
 
@@ -28,7 +29,7 @@ void shift_down(vector<int> &a, int n, int i = 0) {
 // 通过上浮构建堆
 void heap_sort1(vector<int> &a) {
     auto n = a.size();
-    for (size_t heap_size = 2; heap_size <= n; ++heap_size)
+    for (decltype(n) heap_size = 2; heap_size <= n; ++heap_size)
         shift_up(a, heap_size);
     while (n > 1) {
         swap(a[0], a[--n]);
