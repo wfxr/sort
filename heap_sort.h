@@ -4,8 +4,8 @@
 // 对大小为n的堆中最后一个元素执行上浮操作
 void shift_up(vector<int> &a, int n) {
     for (int i = n - 1; i > 0;) {
-        auto c = (i - 1) / 2; // i 的父节点
-        if (a[i] < a[c]) break;
+        auto c = (i - 1) / 2;      // i 的父节点
+        if (!(a[c] < a[i])) break; // 相等时就可以退出循环
         swap(a[c], a[i]);
         i = c;
     }
@@ -20,7 +20,7 @@ void shift_down(vector<int> &a, int n, int i = 0) {
         // c+1是右子节点
         if (c + 1 < n && a[c] < a[c + 1]) ++c;
         // c现在是左右子节点中较大的那个
-        if (a[c] < a[i]) break;
+        if (!(a[i] < a[c])) break;
         swap(a[i], a[c]);
         i = c;
     }
